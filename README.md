@@ -1,6 +1,6 @@
 # 🐾 Case Canil DTI
 
-Aplicação desenvolvida como parte de um desafio técnico para a DTI, com o objetivo de comparar petshops e indicar o mais vantajoso para banhos, considerando a data do serviço e o número de cães pequenos e grandes.
+Aplicação desenvolvida como parte de um desafio técnico para a DTI Digital, com o objetivo de comparar petshops e indicar o mais vantajoso para banhos de cachorros, considerando a data do serviço e o número de cães pequenos e grandes.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -36,6 +36,7 @@ Aplicação desenvolvida como parte de um desafio técnico para a DTI, com o obj
 ## 📌 Premissas Assumidas
 
 -   Por se tratar de uma aplicação simples, com poucas funcionalidades e telas, optei por **servir o frontend estaticamente via Spring Boot**, sem a complexidade de frameworks como Angular ou a biblioteca React.
+-   Os cards exibidos no frontend utilizam dados mockados apenas para compor visualmente a interface. Os dados reais utilizados nos cálculos são processados corretamente pelo backend com base no input do usuário.
 -   Os dados dos petshops utilizados nos cálculos são fixos no backend e **não utilizam banco de dados**.
 -   A validação de dados de entrada do usuário é feita com base no formato e tipo esperados, e instruções de erro são exibidas em caso de dados inválidos.
 
