@@ -12,40 +12,42 @@ body {
 }
 
 :root {
-    --primary: hsl(175, 85%, 45%);
-    --primary-foreground: hsl(210, 20%, 98%);
-    --primary-glow: hsl(175, 100%, 65%);
-    
-    --secondary: hsl(180, 15%, 94%);
-    --secondary-foreground: hsl(185, 25%, 25%);
-    
-    --background: hsl(180, 20%, 98%);
-    --foreground: hsl(185, 84%, 8%);
-    
-    --card: hsl(0, 0%, 100%);
-    --card-foreground: hsl(185, 84%, 8%);
-    
-    --border: hsl(180, 20%, 88%);
-    --input: hsl(180, 20%, 88%);
-    
-    --muted: hsl(180, 15%, 94%);
-    --muted-foreground: hsl(180, 10%, 45%);
-    
-    --radius: 0.5rem;
-    --shadow-soft: 0 4px 20px -2px hsla(175, 85%, 45%, 0.15);
-    --shadow-glow: 0 0 30px hsla(175, 100%, 65%, 0.4);
-    
-    --gradient-hero: linear-gradient(135deg, 
-        hsl(175, 85%, 45%) 0%, 
-        hsl(170, 80%, 50%) 30%, 
-        hsl(165, 75%, 55%) 70%, 
-        hsl(160, 70%, 60%) 100%);
-    --gradient-secondary: linear-gradient(135deg, 
-        hsl(180, 15%, 94%), 
-        hsl(175, 20%, 96%));
-    --gradient-primary: linear-gradient(135deg, 
-        hsl(175, 85%, 45%), 
-        hsl(170, 80%, 50%));
+  --primary: hsl(175, 85%, 42%);               /* Antes: 45% */
+  --primary-foreground: hsl(210, 20%, 98%);
+  --primary-glow: hsl(175, 100%, 60%);          /* Antes: 65% */
+
+  --secondary: hsl(180, 15%, 72%);              /* Antes: 78% */
+  --secondary-foreground: hsl(185, 25%, 15%);   /* Antes: 18% */
+
+  --background: hsl(180, 20%, 76%);             /* Antes: 82% */
+  --foreground: hsl(185, 84%, 7%);              /* Antes: 8% */
+
+  --card: hsl(0, 0%, 99%);                      /* Antes: 100% */
+  --card-foreground: hsl(185, 84%, 7%);
+
+  --border: hsl(180, 20%, 68%);                 /* Antes: 72% */
+  --input: hsl(180, 20%, 68%);
+
+  --muted: hsl(180, 15%, 72%);                  /* Antes: 78% */
+  --muted-foreground: hsl(180, 10%, 34%);       /* Antes: 36% */
+
+  --radius: 0.5rem;
+  --shadow-soft: 0 4px 20px -2px hsla(175, 85%, 42%, 0.12);
+  --shadow-glow: 0 0 30px hsla(175, 100%, 60%, 0.35);
+
+  --gradient-hero: linear-gradient(135deg, 
+    hsl(175, 85%, 42%) 0%, 
+    hsl(170, 80%, 47%) 30%, 
+    hsl(165, 75%, 52%) 70%, 
+    hsl(160, 70%, 57%) 100%);
+  
+  --gradient-secondary: linear-gradient(135deg, 
+    hsl(180, 15%, 72%), 
+    hsl(175, 20%, 76%));
+  
+  --gradient-primary: linear-gradient(135deg, 
+    hsl(175, 85%, 42%), 
+    hsl(170, 80%, 47%));
 }
 
 .app {
@@ -115,8 +117,9 @@ body {
 }
 
 .subtitle {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(46, 39, 39, 0.9);
     font-size: 1.125rem;
+    font-weight: bold;
     max-width: 48rem;
     margin: 0 auto;
 }
@@ -152,6 +155,7 @@ body {
 .card-description {
     color: var(--muted-foreground);
     font-size: 0.875rem;
+    font-weight: bold;
 }
 
 .card-content {
@@ -200,8 +204,10 @@ body {
 
 .button-group {
     display: flex;
+    justify-content: flex-start;
     gap: 0.75rem;
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -219,10 +225,11 @@ body {
 }
 
 .btn-primary {
-    background: var(--gradient-primary);
-    color: var(--primary-foreground);
+    background: hsl(215, 70%, 50%);
+    color: white;
     box-shadow: var(--shadow-soft);
-    flex: 1;
+    padding: 0.6rem 1.25rem;
+    min-width: 180px;
 }
 
 .btn-primary:hover {
@@ -247,10 +254,11 @@ body {
 }
 
 .result-card {
-    background: var(--gradient-secondary);
-    border: 1px solid hsla(175, 85%, 45%, 0.2);
+    background: #e8e8e8;
+    border: 1px solid hsla(175, 85%, 45%, 0.1);
     border-radius: var(--radius);
     overflow: hidden;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .result-header {
@@ -309,6 +317,40 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary);
+}
+
+.result-info-gif {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.result-details {
+    flex: 1;
+}
+
+.result-info-gif {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.gif-container {
+    width: 140px;
+    height: 140px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.gif-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .breakdown {

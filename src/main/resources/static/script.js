@@ -86,12 +86,12 @@ async function calculateBestShop() {
 
         document.getElementById('best-shop-name').textContent = result.name;
         document.getElementById('distance').textContent = `📍 ${shop.distance.toFixed(1)} km`;
-        document.getElementById('total-price').textContent = `Preço Total: R$ ${result.totalPrice.toFixed(2)}`;
+        document.getElementById('total-price').textContent = `Valor Total: R$ ${result.totalPrice.toFixed(2)}`;
         document.getElementById('breakdown').textContent = '';
 
         document.getElementById('result').style.display = 'block';
     } catch (error) {
-        showError('Erro ao calcular: ' + error.message);
+        showError('Erro ao comparar petshops!');
     }
 }
 
