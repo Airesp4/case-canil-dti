@@ -1,0 +1,452 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: hsl(185, 84%, 8%);
+    background: hsl(180, 20%, 98%);
+}
+
+:root {
+    --primary: hsl(175, 85%, 45%);
+    --primary-foreground: hsl(210, 20%, 98%);
+    --primary-glow: hsl(175, 100%, 65%);
+    
+    --secondary: hsl(180, 15%, 94%);
+    --secondary-foreground: hsl(185, 25%, 25%);
+    
+    --background: hsl(180, 20%, 98%);
+    --foreground: hsl(185, 84%, 8%);
+    
+    --card: hsl(0, 0%, 100%);
+    --card-foreground: hsl(185, 84%, 8%);
+    
+    --border: hsl(180, 20%, 88%);
+    --input: hsl(180, 20%, 88%);
+    
+    --muted: hsl(180, 15%, 94%);
+    --muted-foreground: hsl(180, 10%, 45%);
+    
+    --radius: 0.5rem;
+    --shadow-soft: 0 4px 20px -2px hsla(175, 85%, 45%, 0.15);
+    --shadow-glow: 0 0 30px hsla(175, 100%, 65%, 0.4);
+    
+    --gradient-hero: linear-gradient(135deg, 
+        hsl(175, 85%, 45%) 0%, 
+        hsl(170, 80%, 50%) 30%, 
+        hsl(165, 75%, 55%) 70%, 
+        hsl(160, 70%, 60%) 100%);
+    --gradient-secondary: linear-gradient(135deg, 
+        hsl(180, 15%, 94%), 
+        hsl(175, 20%, 96%));
+    --gradient-primary: linear-gradient(135deg, 
+        hsl(175, 85%, 45%), 
+        hsl(170, 80%, 50%));
+}
+
+.app {
+    min-height: 100vh;
+    background: var(--gradient-hero);
+    position: relative;
+    overflow-x: hidden;
+}
+
+.bg-decoration {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-secondary);
+    opacity: 0.3;
+}
+
+.floating-element {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--primary-glow);
+    opacity: 0.2;
+    animation: pulse 2s infinite;
+}
+
+.top-decoration {
+    top: 40px;
+    left: 40px;
+    width: 80px;
+    height: 80px;
+}
+
+.bottom-decoration {
+    bottom: 80px;
+    right: 80px;
+    width: 128px;
+    height: 128px;
+    animation-delay: 1s;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.05); }
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.125rem;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.main-content {
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.calculator-card {
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-glow);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.card-header {
+    padding: 1.5rem 1.5rem 0;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--card-foreground);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-description {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) - 2px);
+    background: var(--background);
+    color: var(--foreground);
+    font-size: 0.875rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px hsla(175, 85%, 45%, 0.2);
+}
+
+.button-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: var(--primary-foreground);
+    box-shadow: var(--shadow-soft);
+    flex: 1;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-secondary {
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--muted);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.result-card {
+    background: var(--gradient-secondary);
+    border: 1px solid hsla(175, 85%, 45%, 0.2);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.result-header {
+    padding: 1rem 1.5rem 0;
+}
+
+.result-header h3 {
+    color: var(--primary);
+    font-size: 1.125rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.result-content {
+    padding: 1.5rem;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: calc(var(--radius) - 2px);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.badge-primary {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-size: 1.125rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.badge-secondary {
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.result-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.total-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.breakdown {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+}
+
+.petshop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.petshop-card {
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    min-height: 140px;
+    font-size: 0.85rem;
+}
+
+.petshop-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+}
+
+.petshop-header {
+    padding: 1rem 1.25rem 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.petshop-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--card-foreground);
+    margin-bottom: 0.25rem;
+}
+
+.petshop-header p {
+    font-size: 0.8rem;
+    color: var(--muted-foreground);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.petshop-content {
+    padding: 0.75rem 1.25rem 1rem;
+    font-size: 0.85rem;
+}
+
+.price-group {
+    margin-bottom: 1rem;
+}
+
+.price-group:last-child {
+    margin-bottom: 0;
+}
+
+.price-title {
+    font-weight: 500;
+    color: var(--foreground);
+    margin-bottom: 0.25rem;
+}
+
+.price-group p:not(.price-title) {
+    color: var(--muted-foreground);
+    margin-left: 0.5rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--foreground);
+    outline: none;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    appearance: none;
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="date"]:hover,
+select:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-error {
+    color: #e63946;
+    background-color: #ffe5e5;
+    border: 1px solid #e63946;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+    
+    .badges {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .petshop-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .floating-element {
+        display: none;
+    }
+}
