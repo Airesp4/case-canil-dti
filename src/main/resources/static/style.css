@@ -12,24 +12,24 @@ body {
 }
 
 :root {
-  --primary: hsl(175, 85%, 42%);               /* Antes: 45% */
+  --primary: hsl(175, 85%, 42%);
   --primary-foreground: hsl(210, 20%, 98%);
-  --primary-glow: hsl(175, 100%, 60%);          /* Antes: 65% */
+  --primary-glow: hsl(175, 100%, 60%);
 
-  --secondary: hsl(180, 15%, 72%);              /* Antes: 78% */
-  --secondary-foreground: hsl(185, 25%, 15%);   /* Antes: 18% */
+  --secondary: hsl(180, 15%, 72%);
+  --secondary-foreground: hsl(185, 25%, 15%);
 
-  --background: hsl(180, 20%, 76%);             /* Antes: 82% */
-  --foreground: hsl(185, 84%, 7%);              /* Antes: 8% */
+  --background: hsl(180, 20%, 76%);
+  --foreground: hsl(185, 84%, 7%);
 
-  --card: hsl(0, 0%, 99%);                      /* Antes: 100% */
+  --card: hsl(0, 0%, 99%);
   --card-foreground: hsl(185, 84%, 7%);
 
-  --border: hsl(180, 20%, 68%);                 /* Antes: 72% */
+  --border: hsl(180, 20%, 68%);
   --input: hsl(180, 20%, 68%);
 
-  --muted: hsl(180, 15%, 72%);                  /* Antes: 78% */
-  --muted-foreground: hsl(180, 10%, 34%);       /* Antes: 36% */
+  --muted: hsl(180, 15%, 72%);
+  --muted-foreground: hsl(180, 10%, 34%);
 
   --radius: 0.5rem;
   --shadow-soft: 0 4px 20px -2px hsla(175, 85%, 42%, 0.12);
@@ -118,7 +118,7 @@ body {
 
 .subtitle {
     color: rgba(46, 39, 39, 0.9);
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: bold;
     max-width: 48rem;
     margin: 0 auto;
@@ -479,9 +479,19 @@ select:focus {
         flex-direction: column;
     }
     
+    .button-group .btn {
+        width: 100%;
+        min-width: auto;
+    }
+    
     .badges {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .badge-primary {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
     }
     
     .petshop-grid {
@@ -490,5 +500,9 @@ select:focus {
     
     .floating-element {
         display: none;
+    }
+
+    .subtitle {
+        font-size: 1.0rem;
     }
 }
