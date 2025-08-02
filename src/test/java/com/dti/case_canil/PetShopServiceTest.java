@@ -85,7 +85,7 @@ class PetShopServiceTest {
         BestPetShopDTO result = petShopService.findBestPetShop(request);
 
         // PetShop A: (1*25) + (2*50) = 125
-        // PetShop B: (1*28) + (2*48) = 124 (mais barato e distância menor)
+        // PetShop B: (1*28) + (2*48) = 124
         // Resultado esperado: PetShop B
         
         assertEquals("PetShop B", result.name());
