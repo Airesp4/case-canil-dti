@@ -33,6 +33,33 @@ Aplicação desenvolvida como parte de um desafio técnico para a DTI Digital, c
     http://localhost:8080
     ```
 
+### 🐳 Executando com Docker
+
+Se preferir rodar a aplicação em um contêiner Docker, siga estes passos:
+
+1.  Clone o repositório:
+    ```bash
+    git clone https://github.com/Airesp4/case-canil-dti.git
+    cd case-canil-dti
+    ```
+
+**Certifique-se de ter o Docker instalado e rodando.**
+
+2.  **Construa a imagem** Docker:
+    ```bash
+    docker build -t case-canil .
+    ```
+
+3.  **Execute o contêiner**:
+    ```bash
+    docker run -p 8080:8080 case-canil
+    ```
+
+4.  Acesse a aplicação no navegador:
+    ```
+    http://localhost:8080
+    ```
+
 ## 📌 Premissas Assumidas
 
 -   Por se tratar de uma aplicação simples, com poucas funcionalidades e telas, optei por **servir o frontend estaticamente via Spring Boot**, sem a complexidade de frameworks como Angular ou a biblioteca React.
